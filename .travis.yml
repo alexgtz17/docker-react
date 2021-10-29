@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+berfore_install:
+  - docker build -t alexgtz17/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true alexgtz17/docker-react npm run test
